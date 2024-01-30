@@ -1,8 +1,57 @@
-<html>
-  <p>hhi</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Adventure Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
 <script>
-  while(true){
-  alert("hi");
+  // Initial game state
+  let playerName = prompt("Welcome to the Text Adventure Game! Enter your name:");
+  alert(`Hello, ${playerName}! Let the adventure begin.`);
+
+  // Function to handle user choices
+  function makeChoice(message, options) {
+    let choice = prompt(`${message}\n\n${options}`).toLowerCase();
+    return choice;
+  }
+
+  // Start the adventure
+  alert("You find yourself in a mysterious forest. You see two paths.");
+
+  let pathChoice = makeChoice("Which path will you take?", "1. Go left\n2. Go right");
+
+  if (pathChoice === "1") {
+    alert("You chose the left path. You encounter a friendly squirrel.");
+    let squirrelChoice = makeChoice("What will you do?", "1. Pet the squirrel\n2. Ignore the squirrel");
+    if (squirrelChoice === "1") {
+      alert("The squirrel seems happy. It gives you a magical acorn.");
+      alert("Congratulations! You completed the adventure. Thanks for playing!");
+    } else {
+      alert("The squirrel looks a bit sad. You continue your journey.");
+      alert("Congratulations! You completed the adventure. Thanks for playing!");
+    }
+  } else if (pathChoice === "2") {
+    alert("You chose the right path. You find a mysterious cave.");
+    let caveChoice = makeChoice("Do you want to enter the cave?", "1. Yes\n2. No");
+    if (caveChoice === "1") {
+      alert("You enter the cave and discover a treasure chest!");
+      alert("Congratulations! You completed the adventure. Thanks for playing!");
+    } else {
+      alert("You decide not to enter the cave. You continue your journey.");
+      alert("Congratulations! You completed the adventure. Thanks for playing!");
+    }
+  } else {
+    alert("Invalid choice. The adventure ends.");
   }
 </script>
+
+</body>
 </html>
