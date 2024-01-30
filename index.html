@@ -13,9 +13,10 @@
 <body>
 
 <script>
+  var I;
   // Initial game state
   let playerName = prompt("Welcome to the Text Adventure Game! Enter your name:");
-  if (playerName = null){
+  if (playerName == null){
     let playerName = prompt("Welcome to the Text Adventure Game! Enter your name:");
   }
   alert(`Hello, ${playerName}! Let the adventure begin.`);
@@ -53,8 +54,8 @@
     }
   } else {
     alert("Invalid choice. The adventure ends.");
+    I ="you lose";
   }
 </script>
-
 </body>
 </html>
