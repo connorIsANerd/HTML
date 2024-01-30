@@ -3,55 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maze Adventure Game</title>
+  <title>Text Adventure Game</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-<p>V 0.0.1</p>
-<script>
-  // Initial game state
-  let playerName = prompt("Welcome to the Maze Adventure Game! Enter your name:");
-  alert(`Hello, ${playerName}! You find yourself at the entrance of a mysterious maze. Let's see if you can find your way out.`);
 
-  // Function to handle user choices
-  function makeChoice(message, options) {
-    let choice = prompt(`${message}\n\n${options}`).toLowerCase();
-    return choice;
-  }
+  <h1>Text Adventure Game</h1>
+  <p id="story">Welcome to the adventure! You find yourself in a dark room.</p>
+  <button onclick="startAdventure()">Start Adventure</button>
 
-  // Start the maze adventure
-  let currentLocation = "entrance";
+  <script>
+    let currentScene = 1;
 
-  while (true) {
-    if (currentLocation === "entrance") {
-      alert("You are at the entrance of the maze. You see two paths.");
-      let pathChoice = makeChoice("Which path will you take?", "1. Go left\n2. Go right");
-
-      if (pathChoice === "1") {
-        alert("You chose the left path. It leads you to a dead-end. Try again.");
-      } else if (pathChoice === "2") {
-        alert("You chose the right path. You find a key and a door.");
-        let doorChoice = makeChoice("What will you do?", "1. Use the key on the door\n2. Go back");
-        if (doorChoice === "1") {
-          alert("Congratulations! You unlocked the door and escaped the maze. You won!");
-          break;
-        } else {
-          alert("You decide to go back to the entrance.");
-        }
-      } else {
-        alert("Invalid choice. Try again.");
-      }
-    } else {
-      // Additional locations and choices can be added for a more complex maze
-      alert("You find yourself in an unknown location. The adventure ends.");
-      break;
+    function startAdventure() {
+      document.getElementById('story').innerText = 'You wake up in a dark room. There are two doors in front of you. Choose wisely.';
+      document.getElementsByTagName('button')[0].innerText = 'Open Door A';
+      document.getElementsByTagName('button')[0].setAttribute('onclick', 'chooseDoor("A")');
+      document.getElementsByTagName('button')[1].innerText = 'Open Door B';
+      document.getElementsByTagName('button')[1].setAttribute('onclick', 'chooseDoor("B")');
     }
-  }
-</script>
+
+    function chooseDoor(choice) {
+      if (currentScene === 1) {
+        if (choice === 'A') {
+          document.getElementById('story').innerText = 'You find a treasure chest! Congratulations, you win!';
+          document.getElementsByTagName('button')[0].style.display = 'none';
+          document.getElementsByTagName('button')[1].style.display = 'none';
+        } else if (choice === 'B') {
+          document.getElementById('story').innerText = 'You enter a room with a hungry lion. You become its lunch. Game over!';
+          document.getElementsByTagName('button')[0].style.display = 'none';
+          document.getElementsByTagName('button')[1].style.display = 'none';
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>
