@@ -3,45 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Adventure Game</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
       text-align: center;
+      color: white;
+      background-color: black;
     }
   </style>
 </head>
 <body>
-
-  <h1>Text Adventure Game</h1>
-  <p id="story">Welcome to the adventure! You find yourself in a dark room.</p>
-  <button onclick="startAdventure()">Start Adventure</button>
-
-  <script>
-    let currentScene = 1;
-
-    function startAdventure() {
-      document.getElementById('story').innerText = 'You wake up in a dark room. There are two doors in front of you. Choose wisely.';
-      document.getElementsByTagName('button')[0].innerText = 'Open Door A';
-      document.getElementsByTagName('button')[0].setAttribute('onclick', 'chooseDoor("A")');
-      document.getElementsByTagName('button')[1].innerText = 'Open Door B';
-      document.getElementsByTagName('button')[1].setAttribute('onclick', 'chooseDoor("B")');
-    }
-
-    function chooseDoor(choice) {
-      if (currentScene === 1) {
-        if (choice === 'A') {
-          document.getElementById('story').innerText = 'You find a treasure chest! Congratulations, you win!';
-          document.getElementsByTagName('button')[0].style.display = 'none';
-          document.getElementsByTagName('button')[1].style.display = 'none';
-        } else if (choice === 'B') {
-          document.getElementById('story').innerText = 'You enter a room with a hungry lion. You become its lunch. Game over!';
-          document.getElementsByTagName('button')[0].style.display = 'none';
-          document.getElementsByTagName('button')[1].style.display = 'none';
-        }
-      }
-    }
-  </script>
+<h1>Wellcome to the start of the ARG!</h1>
+  <p>good luck</p>
+  
 
 </body>
 </html>
